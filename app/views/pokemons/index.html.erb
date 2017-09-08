@@ -4,7 +4,7 @@
       <h1>Pokemons</h1>
     </div>
     <div class="col-lg-1 col-xs-2">
-      <%= link_to '<span style="font-size: 3em;" class="glyphicon glyphicon-plus-sign"></span>'.html_safe , new_pokemon_path %>
+      <%= link_to('<span style="font-size: 3em;" class="glyphicon glyphicon-plus-sign"></span>'.html_safe , new_pokemon_path) if can? :manage, Pokemon %>
     </div>
   </div>
 </div>
@@ -22,10 +22,11 @@
       <tr>
         <td><%= pokemon.name %></td>
         <td><%= pokemon.description %></td>
-        <td><%= link_to 'Show', pokemon %></td>
-        <td><%= link_to 'Edit', edit_pokemon_path(pokemon) %></td>
-        <td><%= link_to 'Destroy', pokemon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "Agregar pokemon a mi lista", add_pokemon_path(pokemon), method: :post %></td>
+
+        <td><%= link_to('Show', pokemon ) if can? :read, pokemon%></td>
+        <td><%= link_to('Edit', edit_pokemon_path(pokemon)) if can? :manage, pokemon %></td>
+        <td><%= link_to('Destroy', pokemon, method: :delete, data: { confirm: 'Are you sure?' }) if can? :manage, pokemon %></td>
+        <td><%= link_to("Agregar pokemon a mi lista", add_pokemon_path(pokemon), method: :post) if can? :add_pokemon, Catch %></td>
       </tr>
     <% end %>
   </tbody>
