@@ -19,4 +19,5 @@ class CatchesController < ApplicationController
     @catch.save
     redirect_to catches_path, notice: "El Pokemon ha subido un nivel"
   end
+
 end
