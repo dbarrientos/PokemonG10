@@ -11,6 +11,7 @@
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
+      <th>Imagen</th>
       <th>Name</th>
       <th>Description</th>
       <th colspan="4"></th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @pokemons.each do |pokemon| %>
       <tr>
+        <td><%= image_tag pokemon.photo.thumb, class: "img-responsive" %></td>
         <td><%= pokemon.name %></td>
         <td><%= pokemon.description %></td>
 

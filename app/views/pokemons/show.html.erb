@@ -4,6 +4,12 @@
 <div class="well bs-component">
   <div class="form-horizontal">
     <div class="form-group">
+      <div class="col-lg-4 col-lg-offset-4">
+        <%= image_tag(@pokemon.photo, class: "img-responsive") if @pokemon.photo?%>
+      </div>
+    </div>
+
+    <div class="form-group">
       <strong class= "col-lg-2 control-label">Name:</strong>
       <div class="col-lg-8">
         <p class= "form-control"><%= @pokemon.name  %></p>
